@@ -4,18 +4,10 @@
   "name": "revery-workbook",
   "description": "A minimal Workbook desktop client written in Revery",
   "keywords": [
-    "esy",
-    "opam",
-    "dune",
-    "ocaml",
-    "reason",
-    "revery",
-    "reasonml",
+    "esy", "opam", "dune", "ocaml", "reason", "revery", "reasonml",
     "workbook"
   ],
-  "scripts": {
-    "run": "esy x App"
-  },
+  "scripts": { "run": "esy x App" },
   "esy": {
     "build": "refmterr dune build -p App",
     "buildsInSource": "_build",
@@ -34,6 +26,8 @@
     "linux": { "packages": [ "tar", "appimage" ] }
   },
   "dependencies": {
+    "@opam/cohttp": "2.4.0",
+    "@opam/cohttp-lwt-unix": "2.4.0",
     "isexe": "^2.0.0",
     "ocaml": "^4.7.1004",
     "revery": "0.28.0"

@@ -2,6 +2,8 @@ open Revery;
 open Revery.UI;
 open Revery.UI.Components;
 
+open Fetch;
+
 let main = app => {
   let window = App.createWindow(app, "ReveryWorkbook");
   let root = <View style=Style.[] />;
