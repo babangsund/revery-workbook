@@ -6,7 +6,7 @@ open Fetch;
 
 let main = app => {
   let window = App.createWindow(app, "ReveryWorkbook");
-  let root = <View style=Style.[] />;
+  let root = <SelectEmployee />;
 
   let _ = UI.start(window, root);
   ();
