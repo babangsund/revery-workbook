@@ -1,0 +1,15 @@
+# dependencies 
+node_modules/
+
+# build
+_esy/
+_build/
+_release/
+
+# misc
+*~
+*.swp
+*.swo
+.merlin
+.DS_STORE
+.rgignore

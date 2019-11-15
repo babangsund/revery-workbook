@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "author": "babangsund",
+  "name": "revery-workbook",
+  "description": "A minimal Workbook desktop client written in Revery",
+  "keywords": [
+    "esy",
+    "opam",
+    "dune",
+    "ocaml",
+    "reason",
+    "revery",
+    "reasonml",
+    "workbook"
+  ],
+  "scripts": {
+    "run": "esy x App"
+  },
+  "esy": {
+    "build": "refmterr dune build -p App",
+    "buildsInSource": "_build",
+    "install": [ "esy-installer App.install" ]
+  },
+  "revery-packager": {
+    "bundleName": "App",
+    "bundleId": "com.revery.workbook.app",
+    "displayName": "ReveryWorkbook",
+    "mainExecutable": "App",
+    "windows": { "packages": [ "zip" ], "iconFile": "assets/icon.ico" },
+    "darwin": {
+      "packages": [ "tar", "dmg" ],
+      "iconFile": "assets/icon.icns"
+    },
+    "linux": { "packages": [ "tar", "appimage" ] }
+  },
+  "dependencies": {
+    "isexe": "^2.0.0",
+    "ocaml": "^4.7.1004",
+    "revery": "0.28.0"
+  },
+  "devDependencies": {
+    "ocaml": "~4.7.0",
+    "@opam/merlin": "*",
+    "@opam/js_of_ocaml-lwt": "3.4.0"
+  },
+  "resolutions": {
+    "pesy": "0.4.1",
+    "@opam/cmdliner": "1.0.2",
+    "@opam/merlin-extend": "0.4",
+    "rebez": "github:jchavarri/rebez#46cbc183",
+    "@opam/js_of_ocaml":
+      "github:ocsigen/js_of_ocaml:js_of_ocaml.opam#db257ce",
+    "@opam/js_of_ocaml-compiler":
+      "github:ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#db257ce"
+  }
+}
