@@ -4,7 +4,7 @@ open Revery.UI.Components;
 
 open Fetch;
 open Workbook;
-open Decoder;
+open Decode;
 
 let main = app => {
   let window = App.createWindow(app, "ReveryWorkbook");

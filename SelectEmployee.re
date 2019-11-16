@@ -29,14 +29,26 @@ let make = () =>
         hooks,
       );
 
+    let setName = n => Name(n) |> dispatch;
+    let setEmployees = e => Employees(e) |> dispatch;
+
+    let hooks =
+      React.Hooks.effect(
+        OnMount,
+        () => {
+          Workbook.fetchEmployees
+          |> Lwt_main.run
+          |> Decode.toEmployees
+          |> setEmployees
+          |> Option.none
+        },
+        hooks,
+      );
+
     (
       hooks,
       <View>
-        <Input
-          value=name
-          placeholder="Search"
-          onChange={e => dispatch(Name(e))}
-        />
+        <Input value=name onChange=setName placeholder="Search" />
       </View>,
     );
   });
