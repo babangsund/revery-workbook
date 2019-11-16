@@ -41,7 +41,7 @@ module Search = {
 
 let component = React.component("SelectEmployee");
 
-let make = () => {
+let make = (~onSetId, ()) => {
   component(hooks => {
     let ({name, employee, employees}, dispatch, hooks) =
       React.Hooks.reducer(
@@ -79,6 +79,12 @@ let make = () => {
         hooks,
       );
 
+    let foundId =
+      switch (employee) {
+      | None => "0"
+      | Some(e) => e.id
+      };
+
     let foundName =
       switch (employee) {
       | None => "No match"
@@ -98,9 +104,23 @@ let make = () => {
             fontFamily(Theme.default.fontFamily),
           ]
         />
+        <Clickable onClick={() => onSetId(foundId)}>
+          <View>
+            <Padding padding=4>
+              <Text
+                text="Get"
+                style=Style.[
+                  color(Theme.default.textLight),
+                  fontSize(Theme.default.fontSize),
+                  fontFamily(Theme.default.fontFamily),
+                ]
+              />
+            </Padding>
+          </View>
+        </Clickable>
       </View>,
     );
   });
 };
 
-let createElement = (~children as _, ()) => make();
+let createElement = (~children as _, ~onSetId, ()) => make(~onSetId, ());
