@@ -3,6 +3,9 @@ open Cohttp;
 open Cohttp_lwt_unix;
 module Cohttp_Response = Response;
 
+let user = "USER";
+let pass = "PASS";
+
 type method =
   | Get
   | Post;
@@ -14,14 +17,7 @@ module Response = {
   };
 };
 
-let fetch =
-    (
-      ~method=Get,
-      ~user: string,
-      ~pass: string,
-      ~body=Cohttp_lwt.Body.empty,
-      url: string,
-    ) => {
+let fetch = (~method=Get, ~body=Cohttp_lwt.Body.empty, url: string) => {
   let headers =
     Header.init()
     |> (

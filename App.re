@@ -3,6 +3,8 @@ open Revery.UI;
 open Revery.UI.Components;
 
 open Fetch;
+open Workbook;
+open Decoder;
 
 let main = app => {
   let window = App.createWindow(app, "ReveryWorkbook");

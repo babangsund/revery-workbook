@@ -1,4 +1,4 @@
 type employee = {
-  id: int,
+  id: string,
   employeeName: string,
 };

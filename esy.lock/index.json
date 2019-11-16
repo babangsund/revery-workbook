@@ -1,5 +1,5 @@
 {
-  "checksum": "6929b75a57a2c4f15e7dc3d9e35fcee2",
+  "checksum": "8c45d1079918b5c588013ec1daa34433",
   "root": "revery-workbook@link-dev:./package.json",
   "node": {
     "revery-workbook@link-dev:./package.json": {
@@ -14,7 +14,8 @@
       "overrides": [],
       "dependencies": [
         "revery@0.28.0@d41d8cd9", "ocaml@4.7.1004@d41d8cd9",
-        "isexe@2.0.0@d41d8cd9", "@opam/cohttp-lwt-unix@opam:2.4.0@291da716",
+        "isexe@2.0.0@d41d8cd9", "@opam/yojson@opam:1.7.0@7056d985",
+        "@opam/cohttp-lwt-unix@opam:2.4.0@291da716",
         "@opam/cohttp@opam:2.4.0@5ca47f8b"
       ],
       "devDependencies": [

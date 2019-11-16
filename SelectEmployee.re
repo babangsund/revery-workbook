@@ -31,11 +31,13 @@ let make = () =>
 
     (
       hooks,
-      <Input
-        value=name
-        placeholder="Search"
-        onChange={e => dispatch(Name(e))}
-      />,
+      <View>
+        <Input
+          value=name
+          placeholder="Search"
+          onChange={e => dispatch(Name(e))}
+        />
+      </View>,
     );
   });
 

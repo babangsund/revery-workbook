@@ -28,6 +28,7 @@
   "dependencies": {
     "@opam/cohttp": "2.4.0",
     "@opam/cohttp-lwt-unix": "2.4.0",
+    "@opam/yojson": "1.7.0",
     "isexe": "^2.0.0",
     "ocaml": "^4.7.1004",
     "revery": "0.28.0"
