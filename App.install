@@ -5,4 +5,5 @@ lib: [
 ]
 bin: [
   "_build/install/default/bin/App"
+  "_build/install/default/bin/Roboto-Regular.ttf"
 ]

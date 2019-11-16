@@ -79,10 +79,25 @@ let make = () => {
         hooks,
       );
 
+    let foundName =
+      switch (employee) {
+      | None => "No match"
+      | Some(e) => e.employeeName
+      };
+
     (
       hooks,
       <View>
         <Input value=name onChange=setName placeholder="Search" />
+        <Text
+          text=foundName
+          style=Style.[
+            color(Theme.default.textDark),
+            width(Theme.default.inputWidth),
+            fontSize(Theme.default.fontSize),
+            fontFamily(Theme.default.fontFamily),
+          ]
+        />
       </View>,
     );
   });
