@@ -1,5 +1,5 @@
 {
-  "checksum": "8c45d1079918b5c588013ec1daa34433",
+  "checksum": "c85acd8da65ea1655102a6890ffbc487",
   "root": "revery-workbook@link-dev:./package.json",
   "node": {
     "revery-workbook@link-dev:./package.json": {
@@ -16,7 +16,8 @@
         "revery@0.28.0@d41d8cd9", "ocaml@4.7.1004@d41d8cd9",
         "isexe@2.0.0@d41d8cd9", "@opam/yojson@opam:1.7.0@7056d985",
         "@opam/cohttp-lwt-unix@opam:2.4.0@291da716",
-        "@opam/cohttp@opam:2.4.0@5ca47f8b"
+        "@opam/cohttp@opam:2.4.0@5ca47f8b",
+        "@opam/calendar@opam:2.04@c3ed18e0"
       ],
       "devDependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/merlin@opam:3.3.2@7a364181",
@@ -66,7 +67,7 @@
       "dependencies": [
         "refmterr@3.2.2@d41d8cd9", "ocaml@4.7.1004@d41d8cd9",
         "@reason-native/pastel@0.1.0@d41d8cd9",
-        "@opam/printbox@opam:0.2@9f070302",
+        "@opam/printbox@opam:0.3@963a823a",
         "@opam/dune@opam:1.11.4@21d66ccd", "@esy-ocaml/reason@3.5.2@d41d8cd9"
       ],
       "devDependencies": []
@@ -890,26 +891,26 @@
         "ocaml@4.7.1004@d41d8cd9", "@opam/result@opam:1.4@dc720aef"
       ]
     },
-    "@opam/printbox@opam:0.2@9f070302": {
-      "id": "@opam/printbox@opam:0.2@9f070302",
+    "@opam/printbox@opam:0.3@963a823a": {
+      "id": "@opam/printbox@opam:0.3@963a823a",
       "name": "@opam/printbox",
-      "version": "opam:0.2",
+      "version": "opam:0.3",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/d8/d84584a8ebdf3faa7b04704f0f75813c#md5:d84584a8ebdf3faa7b04704f0f75813c",
-          "archive:https://github.com/c-cube/printbox/archive/0.2.tar.gz#md5:d84584a8ebdf3faa7b04704f0f75813c"
+          "archive:https://opam.ocaml.org/cache/sha256/7d/7dda76f4f9de0eb4fe08acb363c337a26b3c1b5b03dfa1d7a26c9b0c3f463309#sha256:7dda76f4f9de0eb4fe08acb363c337a26b3c1b5b03dfa1d7a26c9b0c3f463309",
+          "archive:https://github.com/c-cube/printbox/releases/download/0.3/printbox-0.3.tbz#sha256:7dda76f4f9de0eb4fe08acb363c337a26b3c1b5b03dfa1d7a26c9b0c3f463309"
         ],
         "opam": {
           "name": "printbox",
-          "version": "0.2",
-          "path": "esy.lock/opam/printbox.0.2"
+          "version": "0.3",
+          "path": "esy.lock/opam/printbox.0.3"
         }
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/tyxml@opam:4.3.0@c1da25f1",
-        "@opam/dune@opam:1.11.4@21d66ccd",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/uutf@opam:1.0.2@4440868f",
+        "@opam/tyxml@opam:4.3.0@c1da25f1", "@opam/dune@opam:1.11.4@21d66ccd",
         "@opam/base-bytes@opam:base@19d0c2ff",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
@@ -2396,6 +2397,29 @@
       "devDependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/dune@opam:1.11.4@21d66ccd"
       ]
+    },
+    "@opam/calendar@opam:2.04@c3ed18e0": {
+      "id": "@opam/calendar@opam:2.04@c3ed18e0",
+      "name": "@opam/calendar",
+      "version": "opam:2.04",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/62/625b4f32c9ff447501868fa1c44f4f4f#md5:625b4f32c9ff447501868fa1c44f4f4f",
+          "archive:https://download.ocamlcore.org/calendar/calendar/2.04/calendar-2.04.tar.gz#md5:625b4f32c9ff447501868fa1c44f4f4f"
+        ],
+        "opam": {
+          "name": "calendar",
+          "version": "2.04",
+          "path": "esy.lock/opam/calendar.2.04"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.7.1004@d41d8cd9", "@opam/ocamlfind@opam:1.8.1@ff07b0f9",
+        "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [ "ocaml@4.7.1004@d41d8cd9" ]
     },
     "@opam/biniou@opam:1.2.1@d7570399": {
       "id": "@opam/biniou@opam:1.2.1@d7570399",

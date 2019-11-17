@@ -26,6 +26,7 @@
     "linux": { "packages": [ "tar", "appimage" ] }
   },
   "dependencies": {
+    "@opam/calendar": "2.04",
     "@opam/cohttp": "2.4.0",
     "@opam/cohttp-lwt-unix": "2.4.0",
     "@opam/yojson": "1.7.0",

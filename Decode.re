@@ -18,7 +18,7 @@ let toEntry = (json): entry => {
   activityId: json |> toString("ActivityId"),
   registrationDate: json |> toString("RegistrationDate"),
 };
-let toEmployees = json => json |> toList(toEntry);
+let toEntries = json => json |> toList(toEntry);
 
 let toEmployee = (json): employee => {
   id: json |> toString("Id"),

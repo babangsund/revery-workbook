@@ -41,7 +41,7 @@ let make = () =>
       hooks,
       <View>
         <SelectEmployee onSetId={id => ()} onRegister={() => ()} />
-        <TimeTable />
+        <TimeTable id />
       </View>,
     );
   });
