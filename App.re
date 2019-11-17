@@ -8,7 +8,7 @@ open Decode;
 
 let main = app => {
   let window = App.createWindow(app, "ReveryWorkbook");
-  let root = <SelectEmployee onSetId={id => ()} />;
+  let root = <SelectEmployee onSetId={id => ()} onRegister={() => ()} />;
 
   let _ = UI.start(window, root);
   ();

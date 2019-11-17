@@ -67,7 +67,7 @@ let buttonViewStyle =
 
 let component = React.component("SelectEmployee");
 
-let make = (~onSetId, ()) => {
+let make = (~onSetId, ~onRegister, ()) => {
   component(hooks => {
     let ({name, employee, employees}, dispatch, hooks) =
       React.Hooks.reducer(
@@ -135,9 +135,15 @@ let make = (~onSetId, ()) => {
             <Text text="Get" style=buttonTextStyle />
           </View>
         </Clickable>
+        <Clickable onClick=onRegister>
+          <View style=buttonViewStyle>
+            <Text text="Get" style=buttonTextStyle />
+          </View>
+        </Clickable>
       </View>,
     );
   });
 };
 
-let createElement = (~children as _, ~onSetId, ()) => make(~onSetId, ());
+let createElement = (~children as _, ~onSetId, ~onRegister, ()) =>
+  make(~onSetId, ~onRegister, ());
