@@ -39,6 +39,32 @@ module Search = {
   };
 };
 
+let viewStyle =
+  Style.[
+    alignItems(`Center),
+    flexDirection(`Row),
+    justifyContent(`Center),
+  ];
+
+let buttonTextStyle =
+  Style.[
+    color(Theme.default.textLight),
+    fontSize(Theme.default.fontSize),
+    fontFamily(Theme.default.fontFamily),
+  ];
+
+let buttonViewStyle =
+  Style.[
+    padding(4),
+    marginLeft(10),
+    alignItems(`Center),
+    justifyContent(`Center),
+    color(Theme.default.textLight),
+    height(Theme.default.inputHeight),
+    width(Theme.default.inputWidth / 2),
+    backgroundColor(Theme.default.orange),
+  ];
+
 let component = React.component("SelectEmployee");
 
 let make = (~onSetId, ()) => {
@@ -93,7 +119,7 @@ let make = (~onSetId, ()) => {
 
     (
       hooks,
-      <View>
+      <View style=viewStyle>
         <Input value=name onChange=setName placeholder="Search" />
         <Text
           text=foundName
@@ -105,17 +131,8 @@ let make = (~onSetId, ()) => {
           ]
         />
         <Clickable onClick={() => onSetId(foundId)}>
-          <View>
-            <Padding padding=4>
-              <Text
-                text="Get"
-                style=Style.[
-                  color(Theme.default.textLight),
-                  fontSize(Theme.default.fontSize),
-                  fontFamily(Theme.default.fontFamily),
-                ]
-              />
-            </Padding>
+          <View style=buttonViewStyle>
+            <Text text="Get" style=buttonTextStyle />
           </View>
         </Clickable>
       </View>,

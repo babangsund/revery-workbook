@@ -12,12 +12,12 @@ type t = {
 };
 
 let default: t = {
-  fontFamily: "Roboto-Regular.ttf",
   fontSize: 18,
   inputWidth: 200,
   inputHeight: 45,
   orange: Color.hex("#f90"),
   textDark: Color.hex("#333"),
   textLight: Color.hex("#fff"),
+  fontFamily: "Roboto-Regular.ttf",
   backgroundColor: Color.hex("#232f3e"),
 };
