@@ -4,8 +4,6 @@ open Revery.UI.Components;
 
 open Types;
 
-let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
-
 let rec take = (n, l) =>
   if (n == 0) {
     [];
@@ -88,6 +86,8 @@ let make = (~id, ~onSetEntry, ()) =>
     let (rows, setRows, hooks) = React.Hooks.state(React.empty, hooks);
 
     let makeRows = () => {
+      let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
+
       let entries =
         Workbook.fetchEntries(id, today) |> Lwt_main.run |> Decode.toEntries;
 

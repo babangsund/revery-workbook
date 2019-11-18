@@ -4,14 +4,13 @@ open Yojson.Basic.Util;
 
 open Types;
 
-let toBool = (key, json) => json |> member(key) |> to_bool;
 let toString = (key, json) => json |> member(key) |> to_string;
 let toList = (fn, json) => json |> from_string |> to_list |> List.map(fn);
 
 let toEntry = (json): entry => {
   hours: "",
-  billable: false,
-  description: "",
+  billable: "false",
+  description: "Description",
   id: json |> toString("Id"),
   jobId: json |> toString("JobId"),
   taskId: json |> toString("TaskId"),

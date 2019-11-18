@@ -3,7 +3,7 @@ type entry = {
   jobId: string,
   hours: string,
   taskId: string,
-  billable: bool,
+  billable: string,
   activityId: string,
   description: string,
   registrationDate: string,
