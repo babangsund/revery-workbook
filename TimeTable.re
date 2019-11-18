@@ -70,7 +70,7 @@ let text = (~children as _, ~text="", ~color as c=Theme.default.textLight, ()) =
 
 let component = React.component("TimeTable");
 
-let make = (~id, ()) =>
+let make = (~id, ~onSetEntry, ()) =>
   component(hooks => {
     let (rows, setRows, hooks) = React.Hooks.state(React.empty, hooks);
 
@@ -91,9 +91,10 @@ let make = (~id, ()) =>
               |> List.map(entry =>
                    <td>
                      <Input
-                       cursorColor=Colors.white
-                       placeholderColor=Colors.white
                        style=inputStyle
+                       cursorColor={Theme.default.textLight}
+                       placeholderColor={Theme.default.textLight}
+                       onChange={e => onSetEntry({...entry, hours: e.value})}
                      />
                    </td>
                  )
@@ -111,4 +112,5 @@ let make = (~id, ()) =>
     (hooks, <View style=viewStyle> rows </View>);
   });
 
-let createElement = (~children as _, ~id, ()) => make(~id, ());
+let createElement = (~children as _, ~id, ~onSetEntry, ()) =>
+  make(~id, ~onSetEntry, ());

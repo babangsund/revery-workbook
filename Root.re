@@ -30,18 +30,21 @@ let component = React.component("Root");
 
 let make = () =>
   component(hooks => {
-    let ({id, entries}, reducer, hooks) =
+    let ({id, entries}, dispatch, hooks) =
       React.Hooks.reducer(
         ~initialState={id: "?", entries: []},
         reducer,
         hooks,
       );
 
+    let setId = n => Id(n) |> dispatch;
+    let setEntry = e => Entry(e) |> dispatch;
+
     (
       hooks,
       <View>
-        <SelectEmployee onSetId={id => ()} onRegister={() => ()} />
-        <TimeTable id />
+        <SelectEmployee onSetId=setId onRegister={() => ()} />
+        <TimeTable id onSetEntry=setEntry />
       </View>,
     );
   });
