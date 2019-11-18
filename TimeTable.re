@@ -4,6 +4,8 @@ open Revery.UI.Components;
 
 open Types;
 
+let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
+
 let rec take = (n, l) =>
   if (n == 0) {
     [];
@@ -14,7 +16,57 @@ let rec take = (n, l) =>
     };
   };
 
-let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
+let viewStyle =
+  Style.[
+    flexDirection(`Column),
+    borderTop(~color=Theme.default.borderColor, ~width=1),
+    borderLeft(~color=Theme.default.borderColor, ~width=1),
+  ];
+
+let inputStyle =
+  Style.[
+    width(150),
+    height(20),
+    color(Theme.default.textLight),
+    marginLeft(- Input.inputTextMargin),
+    fontSize(Theme.default.fontSize - 2),
+    border(~width=0, ~color=Colors.white),
+  ];
+
+let tr = (~children, ()) =>
+  <View
+    style=Style.[
+      flexWrap(`NoWrap),
+      alignItems(`Center),
+      flexDirection(`Row),
+    ]>
+    {React.listToElement(children)}
+  </View>;
+
+let td = (~children, ~width as w=150, ()) =>
+  <View
+    style=Style.[
+      width(w),
+      overflow(`Hidden),
+      paddingVertical(4),
+      paddingHorizontal(12),
+      borderRight(~color=Theme.default.borderColor, ~width=1),
+      borderBottom(~color=Theme.default.borderColor, ~width=1),
+    ]>
+    {React.listToElement(children)}
+  </View>;
+
+let text = (~children as _, ~text="", ~color as c=Theme.default.textLight, ()) =>
+  <Text
+    text
+    style=Style.[
+      color(c),
+      textOverflow(`Ellipsis),
+      textWrap(TextWrapping.NoWrap),
+      fontFamily(Theme.default.fontFamily),
+      fontSize(Theme.default.fontSize - 2),
+    ]
+  />;
 
 let component = React.component("TimeTable");
 
@@ -22,7 +74,7 @@ let make = (~id, ()) =>
   component(hooks => {
     let (rows, setRows, hooks) = React.Hooks.state(React.empty, hooks);
 
-    let fetchAll = () => {
+    let makeRows = () => {
       let entries =
         Workbook.fetchEntries(id, today) |> Lwt_main.run |> Decode.toEntries;
 
@@ -30,28 +82,33 @@ let make = (~id, ()) =>
       |> Lwt_main.run
       |> Decode.toRows
       |> List.map(r =>
-           <View>
+           <tr>
+             <td width=300> <text text={r.jobName} /> </td>
+             <td width=300> <text text={r.taskDescription} /> </td>
              {entries
               |> List.filter((e: entry) => e.taskId == r.taskId)
               |> take(5)
               |> List.map(entry =>
-                   <Input
-                     cursorColor=Colors.white
-                     placeholderColor=Colors.white
-                   />
+                   <td>
+                     <Input
+                       cursorColor=Colors.white
+                       placeholderColor=Colors.white
+                       style=inputStyle
+                     />
+                   </td>
                  )
               |> React.listToElement}
-           </View>
+           </tr>
          )
       |> React.listToElement
       |> setRows
       |> Option.none;
     };
 
-    let hooks = React.Hooks.effect(OnMount, fetchAll, hooks);
-    let hooks = React.Hooks.effect(If((!=), id), fetchAll, hooks);
+    let hooks = React.Hooks.effect(OnMount, makeRows, hooks);
+    let hooks = React.Hooks.effect(If((!=), id), makeRows, hooks);
 
-    (hooks, <View> rows </View>);
+    (hooks, <View style=viewStyle> rows </View>);
   });
 
 let createElement = (~children as _, ~id, ()) => make(~id, ());
