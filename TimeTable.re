@@ -68,6 +68,19 @@ let text = (~children as _, ~text="", ~color as c=Theme.default.textLight, ()) =
     ]
   />;
 
+let head = {
+  let orange = Theme.default.orange;
+  <tr>
+    <td width=300> <text text="Job" color=orange /> </td>
+    <td width=300> <text text="Task" color=orange /> </td>
+    <td> <text text="Mon" color=orange /> </td>
+    <td> <text text="Tue" color=orange /> </td>
+    <td> <text text="Wed" color=orange /> </td>
+    <td> <text text="Thu" color=orange /> </td>
+    <td> <text text="Fri" color=orange /> </td>
+  </tr>;
+};
+
 let component = React.component("TimeTable");
 
 let make = (~id, ~onSetEntry, ()) =>
@@ -109,7 +122,7 @@ let make = (~id, ~onSetEntry, ()) =>
     let hooks = React.Hooks.effect(OnMount, makeRows, hooks);
     let hooks = React.Hooks.effect(If((!=), id), makeRows, hooks);
 
-    (hooks, <View style=viewStyle> rows </View>);
+    (hooks, <View style=viewStyle> head rows </View>);
   });
 
 let createElement = (~children as _, ~id, ~onSetEntry, ()) =>
