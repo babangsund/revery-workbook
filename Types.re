@@ -1,8 +1,3 @@
-type employee = {
-  id: string,
-  employeeName: string,
-};
-
 type entry = {
   id: string,
   jobId: string,
@@ -12,4 +7,18 @@ type entry = {
   activityId: string,
   description: string,
   registrationDate: string,
+};
+
+type row = {
+  jobId: string,
+  taskId: string,
+  jobName: string,
+  activityId: string,
+  children: list(entry),
+  taskDescription: string,
+};
+
+type employee = {
+  id: string,
+  employeeName: string,
 };

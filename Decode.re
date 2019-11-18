@@ -20,6 +20,16 @@ let toEntry = (json): entry => {
 };
 let toEntries = json => json |> toList(toEntry);
 
+let toRow = (json): row => {
+  children: [],
+  jobId: json |> toString("JobId"),
+  taskId: json |> toString("TaskId"),
+  jobName: json |> toString("JobName"),
+  activityId: json |> toString("ActivityId"),
+  taskDescription: json |> toString("TaskDescription"),
+};
+let toRows = json => json |> toList(toRow);
+
 let toEmployee = (json): employee => {
   id: json |> toString("Id"),
   employeeName: json |> toString("EmployeeName"),

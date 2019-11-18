@@ -13,6 +13,14 @@ let toText = r => r.text();
 let employeeUrl = baseUrl ++ "/resource/employees?Active=true";
 let fetchEmployees = fetch(employeeUrl) >>= toText;
 
+let rowUrl = (id, date) =>
+  baseUrl
+  ++ "/json/reply/TimeEntrySheetVisualizationRequest?ResourceId="
+  ++ id
+  ++ "&Date="
+  ++ date;
+let fetchRows = (id, date) => rowUrl(id, date) |> fetch >>= toText;
+
 let entryUrl = (id, date) =>
   baseUrl
   ++ "/json/reply/TimeEntryDailyRequest?Week=true&ResourceId="

@@ -13,6 +13,8 @@ let make = (~id, ()) =>
     let entries =
       Workbook.fetchEntries(id, today) |> Lwt_main.run |> Decode.toEntries;
 
+    let rows = Workbook.fetchRows(id, today) |> Lwt_main.run |> Decode.toRows;
+
     (hooks, <View />);
   });
 
