@@ -14,13 +14,15 @@ let rec take = (n, l) =>
     };
   };
 
+let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
+
 let component = React.component("TimeTable");
 
 let make = (~id, ()) =>
   component(hooks => {
-    let today = CalendarLib.Date.today() |> CalendarLib.Printer.Date.to_string;
+    let (rows, setRows, hooks) = React.Hooks.state(React.empty, hooks);
 
-    let fetchAll = {
+    let fetchAll = () => {
       let entries =
         Workbook.fetchEntries(id, today) |> Lwt_main.run |> Decode.toEntries;
 
@@ -40,10 +42,16 @@ let make = (~id, ()) =>
                  )
               |> React.listToElement}
            </View>
-         );
+         )
+      |> React.listToElement
+      |> setRows
+      |> Option.none;
     };
 
-    (hooks, <View />);
+    let hooks = React.Hooks.effect(OnMount, fetchAll, hooks);
+    let hooks = React.Hooks.effect(If((!=), id), fetchAll, hooks);
+
+    (hooks, <View> rows </View>);
   });
 
 let createElement = (~children as _, ~id, ()) => make(~id, ());
