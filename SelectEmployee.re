@@ -137,7 +137,7 @@ let make = (~onSetId, ~onRegister, ()) => {
         </Clickable>
         <Clickable onClick=onRegister>
           <View style=buttonViewStyle>
-            <Text text="Get" style=buttonTextStyle />
+            <Text text="Post" style=buttonTextStyle />
           </View>
         </Clickable>
       </View>,

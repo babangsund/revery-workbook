@@ -39,11 +39,18 @@ let make = () =>
 
     let setId = n => Id(n) |> dispatch;
     let setEntry = e => Entry(e) |> dispatch;
+    let handleRegister = () =>
+      entries
+      |> Lwt_list.map_s(Workbook.postEntry)
+      |> Lwt_main.run
+      |> List.map(Yojson.Basic.from_string)
+      |> List.map(Yojson.Basic.to_string)
+      |> List.iter(print_endline);
 
     (
       hooks,
       <View>
-        <SelectEmployee onSetId=setId onRegister={() => ()} />
+        <SelectEmployee onSetId=setId onRegister=handleRegister />
         <TimeTable id onSetEntry=setEntry />
       </View>,
     );
