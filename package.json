@@ -37,6 +37,7 @@
   "devDependencies": {
     "ocaml": "~4.7.0",
     "@opam/merlin": "*",
+    "esy-macdylibbundler": "*",
     "@opam/js_of_ocaml-lwt": "3.4.0"
   },
   "resolutions": {
