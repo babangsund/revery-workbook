@@ -14,16 +14,13 @@
     "install": [ "esy-installer App.install" ]
   },
   "revery-packager": {
-    "bundleName": "App",
-    "bundleId": "com.revery.workbook.app",
-    "displayName": "ReveryWorkbook",
     "mainExecutable": "App",
-    "windows": { "packages": [ "zip" ], "iconFile": "assets/icon.ico" },
-    "darwin": {
-      "packages": [ "tar", "dmg" ],
-      "iconFile": "assets/icon.icns"
-    },
-    "linux": { "packages": [ "tar", "appimage" ] }
+    "bundleName": "Workbook",
+    "displayName": "Workbook",
+    "bundleId": "com.revery.workbook.app",
+    "linux": { "packages": [ "tar", "appimage" ] },
+    "windows": { "packages": [ "zip" ], "iconFile": "assets/workbook.ico" },
+    "darwin": { "packages": [ "tar", "dmg" ], "iconFile": "assets/workbook.icns" }
   },
   "dependencies": {
     "@opam/calendar": "2.04",

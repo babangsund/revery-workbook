@@ -6,4 +6,6 @@ lib: [
 bin: [
   "_build/install/default/bin/App"
   "_build/install/default/bin/Roboto-Regular.ttf"
+  "_build/install/default/bin/icon.icns"
+  "_build/install/default/bin/icon.ico"
 ]
