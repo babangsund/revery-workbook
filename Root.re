@@ -26,6 +26,19 @@ let reducer = (action, {id, entries}) =>
     }
   };
 
+let viewStyle =
+  Style.[
+    top(0),
+    left(0),
+    right(0),
+    bottom(0),
+    padding(0),
+    position(`Absolute),
+    alignItems(`FlexStart),
+    justifyContent(`Center),
+    backgroundColor(Theme.default.backgroundColor),
+  ];
+
 let component = React.component("Root");
 
 let make = () =>
@@ -49,7 +62,7 @@ let make = () =>
 
     (
       hooks,
-      <View>
+      <View style=viewStyle>
         <SelectEmployee onSetId=setId onRegister=handleRegister />
         <TimeTable id onSetEntry=setEntry />
       </View>,

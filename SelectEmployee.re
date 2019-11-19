@@ -53,6 +53,40 @@ let buttonTextStyle =
     fontFamily(Theme.default.fontFamily),
   ];
 
+let foundTextStyle =
+  Style.[
+    padding(3),
+    marginHorizontal(10),
+    textOverflow(`Ellipsis),
+    color(Theme.default.textDark),
+    textWrap(TextWrapping.NoWrap),
+    fontSize(Theme.default.fontSize),
+    fontFamily(Theme.default.fontFamily),
+  ];
+
+let foundViewStyle =
+  Style.[
+    marginLeft(10),
+    alignItems(`Center),
+    flexDirection(`Row),
+    justifyContent(`Center),
+    backgroundColor(Colors.white),
+    width(Theme.default.inputWidth),
+    height(Theme.default.inputHeight),
+    border(~width=1, ~color=Theme.default.orange),
+  ];
+
+let inputStyle =
+  Style.[
+    backgroundColor(Colors.white),
+    color(Theme.default.textDark),
+    width(Theme.default.inputWidth),
+    fontSize(Theme.default.fontSize),
+    height(Theme.default.inputHeight),
+    fontFamily(Theme.default.fontFamily),
+    border(~width=1, ~color=Theme.default.orange),
+  ];
+
 let buttonViewStyle =
   Style.[
     padding(4),
@@ -120,16 +154,16 @@ let make = (~onSetId, ~onRegister, ()) => {
     (
       hooks,
       <View style=viewStyle>
-        <Input value=name onChange=setName placeholder="Search" />
-        <Text
-          text=foundName
-          style=Style.[
-            color(Theme.default.textDark),
-            width(Theme.default.inputWidth),
-            fontSize(Theme.default.fontSize),
-            fontFamily(Theme.default.fontFamily),
-          ]
+        <Input
+          value=name
+          style=inputStyle
+          onChange=setName
+          placeholder="Search"
+          placeholderColor={Theme.default.textDark}
         />
+        <View style=foundViewStyle>
+          <Text text=foundName style=foundTextStyle />
+        </View>
         <Clickable onClick={() => onSetId(foundId)}>
           <View style=buttonViewStyle>
             <Text text="Get" style=buttonTextStyle />
