@@ -32,7 +32,7 @@ let make = () =>
   component(hooks => {
     let ({id, entries}, dispatch, hooks) =
       React.Hooks.reducer(
-        ~initialState={id: "?", entries: []},
+        ~initialState={id: "0", entries: []},
         reducer,
         hooks,
       );
