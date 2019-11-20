@@ -9,3 +9,6 @@ bin: [
   "_build/install/default/bin/icon.icns"
   "_build/install/default/bin/icon.ico"
 ]
+doc: [
+  "_build/install/default/doc/App/README.md"
+]
