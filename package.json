@@ -4,9 +4,22 @@
   "author": "babangsund",
   "name": "revery-workbook",
   "description": "A minimal Workbook desktop client written in Revery",
+  "homepage": "https://github.com/babangsund/revery-workbook#readme",
+  "bugs": { "url": "https://github.com/babangsund/revery-workbook/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/babangsund/revery-workbook.git" },
   "keywords": [
-    "esy", "opam", "dune", "ocaml", "reason", "revery", "reasonml",
-    "workbook"
+    "lwt",
+    "esy",
+    "opam",
+    "dune",
+    "ocaml",
+    "yojson",
+    "cohttp",
+    "reason",
+    "revery",
+    "workbook",
+    "calendar",
+    "reasonml"
   ],
   "scripts": { "run": "esy x App" },
   "esy": {
