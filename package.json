@@ -6,20 +6,13 @@
   "description": "A minimal Workbook desktop client written in Revery",
   "homepage": "https://github.com/babangsund/revery-workbook#readme",
   "bugs": { "url": "https://github.com/babangsund/revery-workbook/issues" },
-  "repository": { "type": "git", "url": "git+https://github.com/babangsund/revery-workbook.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babangsund/revery-workbook.git"
+  },
   "keywords": [
-    "lwt",
-    "esy",
-    "opam",
-    "dune",
-    "ocaml",
-    "yojson",
-    "cohttp",
-    "reason",
-    "revery",
-    "workbook",
-    "calendar",
-    "reasonml"
+    "lwt", "esy", "opam", "dune", "ocaml", "yojson", "cohttp", "reason",
+    "revery", "workbook", "calendar", "reasonml"
   ],
   "scripts": { "run": "esy x App" },
   "esy": {
@@ -34,7 +27,10 @@
     "bundleId": "com.revery.workbook.app",
     "linux": { "packages": [ "tar", "appimage" ] },
     "windows": { "packages": [ "zip" ], "iconFile": "assets/workbook.ico" },
-    "darwin": { "packages": [ "tar", "dmg" ], "iconFile": "assets/workbook.icns" }
+    "darwin": {
+      "packages": [ "tar", "dmg" ],
+      "iconFile": "assets/workbook.icns"
+    }
   },
   "dependencies": {
     "@opam/calendar": "2.04",
@@ -43,7 +39,7 @@
     "@opam/yojson": "1.7.0",
     "isexe": "^2.0.0",
     "ocaml": "^4.7.1004",
-    "revery": "0.28.0"
+    "revery": "^0.28.0"
   },
   "devDependencies": {
     "ocaml": "~4.7.0",

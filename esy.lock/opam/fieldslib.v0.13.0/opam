@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml" {>= "4.04.2"}
-  "base"  {>= "v0.12" & < "v0.13"}
+  "base"  {>= "v0.13" & < "v0.14"}
   "dune"  {>= "1.5.1"}
 ]
 synopsis: "Syntax extension to define first class values representing record fields, to get and set record fields, iterate and fold over all fields of a record and create new record values"
@@ -22,6 +22,6 @@ OCaml's standard library that was developed by Jane Street, the
 largest industrial user of OCaml.
 "
 url {
-  src: "https://ocaml.janestreet.com/ocaml-core/v0.12/files/fieldslib-v0.12.0.tar.gz"
-  checksum: "md5=7cb44f0fb396b6645fc9965ebb8e6741"
+  src: "https://ocaml.janestreet.com/ocaml-core/v0.13/files/fieldslib-v0.13.0.tar.gz"
+  checksum: "md5=3ac72dc49e43416c8b6fa0897bd4838b"
 }
